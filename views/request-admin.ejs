@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="header">
+        <h1><%= title %></h1>
+        <% if (!user) {%>
+          <div class='rightSide'>
+            <a href="/log-in">Log In</a>
+            <a href="/sign-up">Register</a>
+          </div>
+        <% } else { %>
+          <div class='rightSide'>
+            <p>Hello, <%= user.full_name %> </p>
+            <% if (!user.membership_status && !user.admin_status) {%>
+              <a href='/request-membership'>Request Membership</a>
+            <%}%>
+            <% if (!user.admin_status) {%>
+              <a href='/request-admin'>Request Admin</a>
+            <%}%>
+            <a href="/log-out">Log out</a>
+          </div>
+        <%}%>
+    </div>
+    <div>
+      <h3> Want to be an admin? You could delete messages as admin. Enter the following code: 1KP28SZONE </h3>
+      <form method="POST">
+        <label for="adminCode">
+          Secret Input: 
+        </label>
+        <input type='text' name='adminCode'/>
+        <button type="submit">Submit</button>
+        <% if (error) {%>
+          <div>
+            <%= error %>
+          </div>
+        <%}%>
+      </form>
+  </body>
+</html>

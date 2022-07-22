@@ -1,0 +1,57 @@
+.header{
+  border: 1px red solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header > h1{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header > div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.addMessageButton{
+  display: flex;
+  justify-content: center;
+  border: 1px red solid;
+  cursor: pointer;
+  font-size: 40px;
+  width: 75%;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+.messageTitle > h3{
+  margin: 0;
+}
+
+.message{
+  display: flex;
+  flex-direction: column;
+  border: 1px red solid;
+  padding: 20px;
+  gap: 10px;
+}
+
+.messageHeader{
+  display: flex;
+  justify-content: space-between;
+}
+
+.messageFooter{
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteMessageButton{
+  cursor: pointer;
+}

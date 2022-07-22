@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+        <div class="header">
+            <h1><%= title %></h1>
+            <% if (!user) {%>
+            <div class='rightSide'>
+                <a href="/log-in">Log In</a>
+                <a href="/sign-up">Register</a>
+            </div>
+            <% } else { %>
+            <div class='rightSide'>
+                <p>Hello, <%= user.full_name %> </p>
+                <% if (!user.membership_status && !user.admin_status) {%>
+                <a href='/request-membership'>Request Membership</a>
+                <%}%>
+                <% if (!user.admin_status) {%>
+                <a href='/request-admin'>Request Admin</a>
+                <%}%>
+                <a href="log-out">Log out</a>
+            </div>
+            <%}%>
+        </div>
+        <h1>Sign Up</h1>
+        <form action="/sign-up" method="POST">
+            <label for="first_name">First Name</label>
+            <input name="first_name" placeholder="First Name" type="text" required='true'/>
+            <label for="last_name">Last Name</label>
+            <input name="last_name" placeholder="Last Name" type="text" required='true'/>
+            <label for="username">Username</label>
+            <input name="username" placeholder="username" type="text" required='true'/>
+            <label for="password">Password</label>
+            <input name="password" type="password" required='true'/>
+            <button>Sign up</button>
+        </form>
+    </body>
+</html>
